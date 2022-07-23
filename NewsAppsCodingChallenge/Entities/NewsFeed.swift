@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct NewsFeed: Codable {
+struct NewsFeed: Codable, Equatable {
 	let headlines: [Headline]
 }

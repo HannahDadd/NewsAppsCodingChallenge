@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Headline: Codable {
+struct Headline: Codable, Equatable {
 	let headline: String
 	let updated: TimeInterval
 	let introduction: String

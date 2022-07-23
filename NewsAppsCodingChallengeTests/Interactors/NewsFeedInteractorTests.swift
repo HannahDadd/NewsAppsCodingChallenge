@@ -16,10 +16,10 @@ class NewsFeedInteractorTests: XCTestCase {
 		let newsFeed = getSampleNewsFeed()
 
 		// When the NewsFeedInteractor is created with a NewsFeed object
-		let newsFeedInteractor = NewsFeedInteractor(model: newsFeed)
+		let newsFeedInteractor = NewsFeedInteractor(newsFeed: newsFeed)
 
 		// Then the model object is unchanged
-		XCTAssertEqual(newsFeedInteractor.model, getSampleNewsFeed())
+		XCTAssertEqual(newsFeedInteractor.newsFeed, getSampleNewsFeed())
 	}
 
 	private func getSampleNewsFeed() -> NewsFeed {
