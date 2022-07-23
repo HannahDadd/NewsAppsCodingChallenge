@@ -8,9 +8,9 @@
 import XCTest
 @testable import NewsAppsCodingChallenge
 
-class HeadlinesDecodableTests: XCTestCase {
+class NewsFeedDecodableTests: XCTestCase {
 
-	func testWarningsResponseIsDecodedCorrectly() throws {
+	func testNewsFeedResponseIsDecodedCorrectly() throws {
 
 		// Given a JSON Headlines response
 		let stubbedHeadlinesData = getDataForJsonFile("headlines-success-response")
