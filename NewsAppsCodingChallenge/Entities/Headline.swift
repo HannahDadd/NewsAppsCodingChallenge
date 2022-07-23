@@ -9,6 +9,6 @@ import Foundation
 
 struct Headline: Codable {
 	let headline: String
-	let updated: Date
+	let updated: TimeInterval
 	let introduction: String
 }
