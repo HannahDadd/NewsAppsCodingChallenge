@@ -7,7 +7,7 @@
 
 @testable import NewsAppsCodingChallenge
 
-class NewsFeedFetcherSuccessfulMock: NewsFeedFetcher {
+struct NewsFeedFetcherSuccessfulMock: NewsFeedFetcher {
 
 	func fetchNewsFeed(completion: @escaping (Result<NewsFeed, Error>) -> Void) {
 		completion(.success(NewsFeedStubbedData.getSampleNewsFeed()))
