@@ -10,15 +10,15 @@ import XCTest
 
 class NewsFeedInteractorTests: XCTestCase {
 
-	func testInteractorServesModelUnchanged() throws {
+	func testInteractorFetchesNewsFeedSuccessfully() throws {
 
-		// Given a NewsFeed object
-		let newsFeed = NewsFeedStubbedData.getSampleNewsFeed()
+		// Given a NewsFeedInteractor with a successful NewsFeedFetcher
+		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock())
 
-		// When the NewsFeedInteractor is created with a NewsFeed object
-		let newsFeedInteractor = NewsFeedInteractor(newsFeed: newsFeed)
+		// When the NewsFeedInteractor fetches the data
+		let fetchedData = NewsFeedInteractor.fetchNewsFeed()
 
-		// Then the model object is unchanged
-		XCTAssertEqual(newsFeedInteractor.newsFeed, NewsFeedStubbedData.getSampleNewsFeed())
+		// Then the news feed object is returned
+		XCTAssertEqual(fetchedData, NewsFeedStubbedData.getSampleNewsFeed())
 	}
 }
