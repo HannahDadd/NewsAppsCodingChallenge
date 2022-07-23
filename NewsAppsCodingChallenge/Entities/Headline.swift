@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Headline {
+struct Headline: Codable {
 	let headline: String
-	let updated: Int
+	let updated: Date
 	let introduction: String
 }

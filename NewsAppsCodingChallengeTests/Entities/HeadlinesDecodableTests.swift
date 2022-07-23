@@ -13,7 +13,7 @@ class HeadlinesDecodableTests: XCTestCase {
 	func testWarningsResponseIsDecodedCorrectly() throws {
 
 		// Given a JSON Headlines response
-		let stubbedHeadlinesData = getDataForJsonFile("headlines-success-reponse")
+		let stubbedHeadlinesData = getDataForJsonFile("headlines-success-response")
 
 		// When the response is decoded to the News Feed entity
 		let decoder = JSONDecoder()
