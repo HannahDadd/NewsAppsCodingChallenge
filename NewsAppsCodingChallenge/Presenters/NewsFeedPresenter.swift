@@ -11,6 +11,7 @@ import SwiftUI
 class NewsFeedPresenter: ObservableObject {
 	@Published var newsFeedResult: Result<[HeadlinePresenter], Error>?
 	private let newsFeedInteractor: FeedInteractor
+	private let router = ArticleRouter()
 
 	init(interactor: FeedInteractor) {
 		newsFeedInteractor = interactor
@@ -26,6 +27,12 @@ class NewsFeedPresenter: ObservableObject {
 			case .failure(let error):
 				self.newsFeedResult = .failure(error)
 			}
+		}
+	}
+
+	func makeLink<Content: View>(headline: Headline, @ViewBuilder content: () -> Content) -> some View {
+		NavigationLink(destination: router.makeArticleView(headline: headline)) {
+			content()
 		}
 	}
 }
