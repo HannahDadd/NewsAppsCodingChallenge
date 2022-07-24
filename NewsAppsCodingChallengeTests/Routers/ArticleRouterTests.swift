@@ -18,8 +18,8 @@ class ArticleRouterTests: XCTestCase {
 		let articleRouter = ArticleRouter()
 
 		// When the ArticleRouter builds a view from a given Headline
-		let view = articleRouter.makeArticleView(headline: NewsFeedStubbedData.getSampleNewsFeed().headlines[0])
-		let view: UIView = UIHostingController(rootView: view).view
+		let headlineView = articleRouter.makeArticleView(headline: NewsFeedStubbedData.getSampleNewsFeed().headlines[0])
+		let view: UIView = UIHostingController(rootView: headlineView).view
 
 		// Then the Article Router creates the correct view
 		assertSnapshot(matching: view, as: .image(size: view.intrinsicContentSize))
