@@ -25,6 +25,6 @@ class HeadlinePresenterTests: XCTestCase {
 		let headlinePresenter = HeadlinePresenter(headline: NewsFeedStubbedData.getSampleNewsFeed().headlines[0])
 
 		// Then the headline is unchanged
-		XCTAssertEqual(headlinePresenter.headline, "Rare angel sharks found living off Wales")
+		XCTAssertEqual(headlinePresenter.headlineString, "Rare angel sharks found living off Wales")
 	}
 }

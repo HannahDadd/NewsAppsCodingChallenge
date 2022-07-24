@@ -12,7 +12,7 @@ struct HeadlineView: View {
 
     var body: some View {
 		VStack {
-			Text(presenter.headline).headlineTypography()
+			Text(presenter.headlineString).headlineTypography()
 				.frame(maxWidth: .infinity, alignment: .leading)
 			Text(presenter.updatedTimestamp).lastUpdatedTimestampTypography()
 				.frame(maxWidth: .infinity, alignment: .leading)

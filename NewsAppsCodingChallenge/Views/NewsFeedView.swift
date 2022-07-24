@@ -19,7 +19,9 @@ struct NewsFeedView: View {
 					Text("No news yet! Check back soon!")
 				} else {
 					ForEach(headlinePresenters) { h in
-						HeadlineView(presenter: h)
+						presenter.makeLink(headline: h.headline) {
+							HeadlineView(presenter: h)
+						}
 					}
 				}
 			}.refreshable {

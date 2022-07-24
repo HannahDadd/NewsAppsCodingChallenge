@@ -9,8 +9,9 @@ import Foundation
 import SwiftUI
 
 class HeadlinePresenter: ObservableObject, Equatable, Identifiable {
-	@Published var headline: String
+	@Published var headlineString: String
 	@Published var updatedTimestamp: String
+	let headline: Headline
 
 	init(headline: Headline) {
 		let dateFormatter = DateFormatter()
@@ -18,10 +19,11 @@ class HeadlinePresenter: ObservableObject, Equatable, Identifiable {
 		dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
 
 		updatedTimestamp = dateFormatter.string(from: Date(timeIntervalSince1970: headline.updated))
-		self.headline = headline.headline
+		headlineString = headline.headline
+		self.headline = headline
 	}
 
 	static func == (lhs: HeadlinePresenter, rhs: HeadlinePresenter) -> Bool {
-		lhs.headline == rhs.headline && lhs.updatedTimestamp == rhs.updatedTimestamp
+		lhs.headlineString == rhs.headlineString && lhs.updatedTimestamp == rhs.updatedTimestamp
 	}
 }
