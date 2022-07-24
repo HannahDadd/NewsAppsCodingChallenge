@@ -30,6 +30,7 @@ struct NewsFeedView: View {
 			}.refreshable {
 				presenter.fetchNewsFeed()
 			}.listStyle(.plain)
+				.navigationBarTitle(Text("News Feed"), displayMode: .inline)
 		case .failure(let error):
 			ErrorView(error: error, retryHandler: { presenter.fetchNewsFeed() })
 		case nil:

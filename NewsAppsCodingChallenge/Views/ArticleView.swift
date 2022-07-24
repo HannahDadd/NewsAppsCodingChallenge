@@ -11,7 +11,7 @@ struct ArticleView: View {
 	@ObservedObject var presenter: ArticlePresenter
 
     var body: some View {
-		VStack(spacing: 8) {
+		VStack(spacing: 16) {
 			Text(presenter.headline).headlineTypography()
 				.frame(maxWidth: .infinity, alignment: .leading)
 			Text(presenter.updatedTimestamp).lastUpdatedTimestampTypography()
