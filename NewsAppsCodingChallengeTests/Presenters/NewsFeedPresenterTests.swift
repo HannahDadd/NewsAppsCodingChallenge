@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import SwiftUI
 @testable import NewsAppsCodingChallenge
 
 class NewsFeedPresenterTests: XCTestCase {
@@ -31,5 +32,18 @@ class NewsFeedPresenterTests: XCTestCase {
 		case .none:
 			XCTFail("Interactor should have data")
 		}
+	}
+
+	func testPresenterCreatesNavLinks() {
+
+		// Given a NewsFeedPresenter with a FeedInteractor and a Headline
+		let newsFeedPresenter = NewsFeedPresenter(interactor: NewsFeedInteractorMock())
+		let headline = NewsFeedStubbedData.getSampleNewsFeed().headlines[0]
+
+		// When the NewsFeedPresenter is asked to make a nav link
+		let link = newsFeedPresenter.makeLink(headline: headline)
+
+		// Then the view produced is a NavigationLink
+		XCTAssert(link as NavigationLink)
 	}
 }
