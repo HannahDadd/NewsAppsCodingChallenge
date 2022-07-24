@@ -7,10 +7,17 @@
 
 import Foundation
 
-class NewsFeedInteractor {
-	let newsFeed: NewsFeed
+struct NewsFeedInteractor {
+	let newsFeedFetcher: NewsFeedFetcher
 
-	init(newsFeed: NewsFeed) {
-		self.newsFeed = newsFeed
+	func fetchNewsFeed(completion: @escaping (Result<NewsFeed, Error>) -> Void) {
+		Task {
+			do {
+				let feed = try await newsFeedFetcher.performFetch()
+				completion(.success(feed))
+			} catch {
+				completion(.failure(error))
+			}
+		}
 	}
 }

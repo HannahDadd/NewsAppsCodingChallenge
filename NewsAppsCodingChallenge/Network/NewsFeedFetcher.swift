@@ -8,26 +8,13 @@
 import Foundation
 
 protocol NewsFeedFetcher {
-	func fetchNewsFeed(completion: @escaping (Result<NewsFeed, Error>) -> Void)
+	func performFetch() async throws -> NewsFeed
 }
 
 struct NewsFeedFetcherWithURLSession: NewsFeedFetcher {
 	private let fetchUrl = "https://raw.githubusercontent.com/bbc/news-apps-coding-challenge/master/headlines.json"
 
-	func fetchNewsFeed(completion: @escaping (Result<NewsFeed, Error>) -> Void) {
-		Task {
-			do {
-				let feed = try await performFetch()
-				completion(.success(feed))
-
-			} catch {
-				completion(.failure(error))
-			}
-
-		}
-	}
-
-	private func performFetch() async throws -> NewsFeed {
+	func performFetch() async throws -> NewsFeed {
 		guard let url = URL(string: fetchUrl) else {
 			throw CustomError(description: "Invalid URL")
 		}
