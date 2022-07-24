@@ -13,7 +13,9 @@ struct HeadlineView: View {
     var body: some View {
 		VStack {
 			Text(headline.headline).headlineTypography()
+				.frame(maxWidth: .infinity, alignment: .leading)
 			Text("Timestamp here").lastUpdatedTimestampTypography()
+				.frame(maxWidth: .infinity, alignment: .leading)
 		}
     }
 }
