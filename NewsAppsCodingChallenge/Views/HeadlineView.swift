@@ -11,12 +11,12 @@ struct HeadlineView: View {
 	@ObservedObject var presenter: HeadlinePresenter
 
     var body: some View {
-		VStack {
+		VStack(spacing: 8) {
 			Text(presenter.headlineString).headlineTypography()
 				.frame(maxWidth: .infinity, alignment: .leading)
 			Text(presenter.updatedTimestamp).lastUpdatedTimestampTypography()
 				.frame(maxWidth: .infinity, alignment: .leading)
-		}
+		}.padding(.vertical)
     }
 }
 

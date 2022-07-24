@@ -10,7 +10,7 @@ import SwiftUI
 
 struct NewsFeedView: View {
 	@ObservedObject var presenter: NewsFeedPresenter
-
+	
 	var body: some View {
 		switch presenter.newsFeedResult {
 		case .success(let headlinePresenters):
@@ -19,8 +19,11 @@ struct NewsFeedView: View {
 					Text("No news yet! Check back soon!")
 				} else {
 					ForEach(headlinePresenters) { h in
-						presenter.makeLink(headline: h.headline) {
+						VStack {
 							HeadlineView(presenter: h)
+							presenter.makeLink(headline: h.headline) {
+								EmptyView()
+							}.frame(width: 0).opacity(0)
 						}
 					}
 				}
@@ -41,7 +44,7 @@ struct NewsFeedView_Previews: PreviewProvider {
 		createPreviewView(deviceName: "iPhone SE (1st generation)")
 		createPreviewView(deviceName: "iPad (7th generation)")
 	}
-
+	
 	public static func createPreviewView(deviceName: String) -> some View {
 		let interactor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock())
 		let presenter = NewsFeedPresenter(interactor: interactor)

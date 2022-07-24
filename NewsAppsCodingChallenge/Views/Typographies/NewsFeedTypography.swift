@@ -9,15 +9,15 @@ import SwiftUI
 
 extension Text {
 	func headlineTypography() -> Text {
-	   return self
-			.font(.system(size: 45, weight: .bold, design: .default))
+		return self.font(.title)
+			.bold()
 			.foregroundColor(.readableBlack)
 	}
 
 	func lastUpdatedTimestampTypography() -> Text {
 	   return self
 			.fontWeight(.light)
-			.foregroundColor(.readableBlack)
+			.foregroundColor(.timestampGrey)
 	}
 
 	func introductionTypography() -> Text {
