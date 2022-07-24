@@ -8,8 +8,13 @@
 @testable import NewsAppsCodingChallenge
 
 struct NewsFeedFetcherSuccessfulMock: NewsFeedFetcher {
+	func performFetch() async throws -> NewsFeed {
+		NewsFeedStubbedData.getSampleNewsFeed()
+	}
+}
 
-	func fetchNewsFeed(completion: @escaping (Result<NewsFeed, Error>) -> Void) {
-		completion(.success(NewsFeedStubbedData.getSampleNewsFeed()))
+struct NewsFeedFetcherFailureMock: NewsFeedFetcher {
+	func performFetch() async throws -> NewsFeed {
+		throw CustomError(description: "Failed to fetch data")
 	}
 }

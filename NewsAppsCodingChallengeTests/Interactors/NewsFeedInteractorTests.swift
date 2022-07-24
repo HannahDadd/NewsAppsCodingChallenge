@@ -16,9 +16,33 @@ class NewsFeedInteractorTests: XCTestCase {
 		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock())
 
 		// When the NewsFeedInteractor fetches the data
-		let fetchedData = NewsFeedInteractor.fetchNewsFeed()
+		newsFeedInteractor.fetchNewsFeed() {
 
-		// Then the news feed object is returned
-		XCTAssertEqual(fetchedData, NewsFeedStubbedData.getSampleNewsFeed())
+			// Then the news feed object is returned
+			switch $0 {
+			case .success(let newsFeed):
+				XCTAssertEqual(newsFeed, NewsFeedStubbedData.getSampleNewsFeed())
+			case .failure(_):
+				XCTFail("Call should be a success")
+			}
+		}
+	}
+
+	func testInteractorFailurePath() throws {
+
+		// Given a NewsFeedInteractor with a failure NewsFeedFetcher
+		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherFailureMock())
+
+		// When the NewsFeedInteractor fetches the data
+		newsFeedInteractor.fetchNewsFeed() {
+
+			// Then the news feed object is returned
+			switch $0 {
+			case .success(_):
+				XCTFail("Call should fail")
+			case .failure(let error):
+				XCTAssertEqual(error.localizedDescription, "Failed to fetch data")
+			}
+		}
 	}
 }
