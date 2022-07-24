@@ -6,7 +6,6 @@
 //
 
 import Foundation
-@testable import NewsAppsCodingChallenge
 
 struct ArticleInteractorMock: ArticleInteractorProtocol {
 	let headline = NewsFeedStubbedData.getSampleNewsFeed().headlines[0]
