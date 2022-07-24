@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class HeadlinePresenter: ObservableObject, Equatable {
+class HeadlinePresenter: ObservableObject, Equatable, Identifiable {
 	@Published var headline: String
 	@Published var updatedTimestamp: String
 

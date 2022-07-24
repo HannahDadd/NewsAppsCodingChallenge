@@ -13,12 +13,14 @@ struct NewsFeedView: View {
 
 	var body: some View {
 		switch presenter.newsFeedResult {
-		case .success(let newsFeed):
+		case .success(let headlinePresenters):
 			List {
-				if newsFeed.count == 0 {
+				if headlinePresenters.count == 0 {
 					Text("No news yet! Check back soon!")
 				} else {
-					Text("We have headlines!")
+					ForEach(headlinePresenters) { h in
+						HeadlineView(presenter: h)
+					}
 				}
 			}.refreshable {
 				presenter.fetchNewsFeed()
