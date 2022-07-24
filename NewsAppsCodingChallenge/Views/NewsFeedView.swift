@@ -5,6 +5,7 @@
 //  Created by Hannah Billingsley-Dadd on 24/07/2022.
 //
 
+import Foundation
 import SwiftUI
 
 struct NewsFeedView: View {
@@ -40,6 +41,7 @@ struct NewsFeedView_Previews: PreviewProvider {
 	public static func createPreviewView(deviceName: String) -> some View {
 		let interactor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock())
 		let presenter = NewsFeedPresenter(interactor: interactor)
+		presenter.fetchNewsFeed()
 		return NewsFeedView(presenter: presenter)
 			.previewDevice(PreviewDevice(rawValue: deviceName))
 			.previewDisplayName(deviceName)

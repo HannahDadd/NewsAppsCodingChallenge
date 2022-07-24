@@ -14,6 +14,7 @@ class NewsFeedViewSnapshotTests: XCTestCase {
 
 	func testNewsFeedViewiPhone11() throws {
 		let newsFeedView = NewsFeedView_Previews.createPreviewView(deviceName: "iPhone 11")
+			.frame(width: 375, height: 812)
 		let view: UIView = UIHostingController(rootView: newsFeedView).view
 
 		assertSnapshot(matching: view, as: .image(size: view.intrinsicContentSize))
@@ -22,6 +23,7 @@ class NewsFeedViewSnapshotTests: XCTestCase {
 	func testNewsFeedViewiPhoneSE() throws {
 		let newsFeedView = NewsFeedView_Previews
 			.createPreviewView(deviceName: "iPhone SE (1st generation)")
+			.frame(width: 320, height: 500)
 		let view: UIView = UIHostingController(rootView: newsFeedView).view
 
 		assertSnapshot(matching: view, as: .image(size: view.intrinsicContentSize))
@@ -30,6 +32,7 @@ class NewsFeedViewSnapshotTests: XCTestCase {
 	func testNewsFeedViewiPad() throws {
 		let newsFeedView = NewsFeedView_Previews
 			.createPreviewView(deviceName: "iPad (7th generation)")
+			.frame(width: 788, height: 1024)
 		let view: UIView = UIHostingController(rootView: newsFeedView).view
 
 		assertSnapshot(matching: view, as: .image(size: view.intrinsicContentSize))
