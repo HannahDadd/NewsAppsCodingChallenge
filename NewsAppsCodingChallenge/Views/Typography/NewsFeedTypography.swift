@@ -7,28 +7,21 @@
 
 import SwiftUI
 
-struct HeadlineText: View {
-	let text: String
-
-	var body: some View {
-		Text(text)
+extension Text {
+	func headlineTypography() -> Text {
+	   return self
 			.font(.system(size: 45, weight: .bold, design: .default))
+			.foregroundColor(.readableBlack)
 	}
-}
 
-struct LastUpdatedTimestamp: View {
-	let text: String
-
-	var body: some View {
-		Text(text)
+	func lastUpdatedTimestampTypography() -> Text {
+	   return self
 			.fontWeight(.light)
+			.foregroundColor(.readableBlack)
 	}
-}
 
-struct IntroductionText: View {
-	let text: String
-
-	var body: some View {
-		Text(text)
+	func introductionTypography() -> Text {
+	   return self
+			.foregroundColor(.readableBlack)
 	}
 }

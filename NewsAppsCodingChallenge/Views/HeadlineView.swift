@@ -12,8 +12,8 @@ struct HeadlineView: View {
 
     var body: some View {
 		VStack {
-			HeadlineText(text: headline.headline)
-			LastUpdatedTimestamp(text: "Timestamp here")
+			Text(headline.headline).headlineTypography()
+			Text("Timestamp here").lastUpdatedTimestampTypography()
 		}
     }
 }
