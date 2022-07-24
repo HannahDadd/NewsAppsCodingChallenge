@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct ArticleView: View {
+	@ObservedObject var presenter: ArticlePresenter
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		VStack {
+			Text(presenter.headline).headlineTypography()
+				.frame(maxWidth: .infinity, alignment: .leading)
+			Text(presenter.updatedTimestamp).lastUpdatedTimestampTypography()
+				.frame(maxWidth: .infinity, alignment: .leading)
+			Text(presenter.introduction).introductionTypography()
+				.frame(maxWidth: .infinity, alignment: .leading)
+		}
     }
 }
 
