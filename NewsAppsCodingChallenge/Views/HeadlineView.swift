@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct HeadlineView: View {
-	let headline: Headline
+	@ObservedObject var presenter: HeadlinePresenter
 
     var body: some View {
 		VStack {
-			Text(headline.headline).headlineTypography()
+			Text(presenter.headline).headlineTypography()
 				.frame(maxWidth: .infinity, alignment: .leading)
-			Text("Timestamp here").lastUpdatedTimestampTypography()
+			Text(presenter.updatedTimestamp).lastUpdatedTimestampTypography()
 				.frame(maxWidth: .infinity, alignment: .leading)
 		}
     }
@@ -22,6 +22,7 @@ struct HeadlineView: View {
 
 struct HeadlineView_Previews: PreviewProvider {
     static var previews: some View {
-		HeadlineView(headline: NewsFeedStubbedData.getSampleNewsFeed().headlines[0])
+		let presenter = HeadlinePresenter(headline: NewsFeedStubbedData.getSampleNewsFeed().headlines[0])
+		HeadlineView(presenter: presenter)
     }
 }
