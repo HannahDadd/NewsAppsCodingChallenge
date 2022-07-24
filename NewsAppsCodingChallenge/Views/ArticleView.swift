@@ -11,14 +11,15 @@ struct ArticleView: View {
 	@ObservedObject var presenter: ArticlePresenter
 
     var body: some View {
-		VStack {
+		VStack(spacing: 8) {
 			Text(presenter.headline).headlineTypography()
 				.frame(maxWidth: .infinity, alignment: .leading)
 			Text(presenter.updatedTimestamp).lastUpdatedTimestampTypography()
 				.frame(maxWidth: .infinity, alignment: .leading)
 			Text(presenter.introduction).introductionTypography()
 				.frame(maxWidth: .infinity, alignment: .leading)
-		}
+			Spacer()
+		}.padding()
     }
 }
 
