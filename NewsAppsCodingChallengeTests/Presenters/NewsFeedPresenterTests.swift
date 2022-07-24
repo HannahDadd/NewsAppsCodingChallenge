@@ -19,12 +19,14 @@ class NewsFeedPresenterTests: XCTestCase {
 		newsFeedPresenter.fetchNewsFeed()
 
 		// Then the news feed result is populated
+		// There is no need to test the failure path here as the interactor handles
+		// failure- presenter should just spit out result of interactor
 		switch newsFeedPresenter.newsFeedResult {
 		case .success(let newsFeed):
 			XCTAssertEqual(newsFeed, NewsFeedStubbedData.getSampleNewsFeed())
 		case .failure(_):
 			XCTFail("Interactor should have data")
-		case .nil:
+		case .none:
 			XCTFail("Interactor should have data")
 		}
 	}
