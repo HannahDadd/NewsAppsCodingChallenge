@@ -13,27 +13,23 @@ import SwiftUI
 class NewsFeedViewSnapshotTests: XCTestCase {
 
 	func testNewsFeedViewiPhone11() throws {
-		let newsFeedView = NewsFeedView_Preview().createPreviewView(
-			deviceName: "iPhone 11",
-			windowSize: CGSize(width: 375, height: 812))
+		let newsFeedView = NewsFeedView_Previews.createPreviewView(deviceName: "iPhone 11")
 		let view: UIView = UIHostingController(rootView: newsFeedView).view
 
 		assertSnapshot(matching: view, as: .image(size: view.intrinsicContentSize))
 	}
 
 	func testNewsFeedViewiPhoneSE() throws {
-		let newsFeedView = NewsFeedView_Preview().createPreviewView(
-			deviceName: "iPhone SE (1st generation)",
-			windowSize: CGSize(width: 320, height: 500))
+		let newsFeedView = NewsFeedView_Previews
+			.createPreviewView(deviceName: "iPhone SE (1st generation)")
 		let view: UIView = UIHostingController(rootView: newsFeedView).view
 
 		assertSnapshot(matching: view, as: .image(size: view.intrinsicContentSize))
 	}
 
 	func testNewsFeedViewiPad() throws {
-		let newsFeedView = NewsFeedView_Preview().createPreviewView(
-			deviceName: "iPad (7th generation)",
-			windowSize: CGSize(width: 788, height: 1024))
+		let newsFeedView = NewsFeedView_Previews
+			.createPreviewView(deviceName: "iPad (7th generation)")
 		let view: UIView = UIHostingController(rootView: newsFeedView).view
 
 		assertSnapshot(matching: view, as: .image(size: view.intrinsicContentSize))
