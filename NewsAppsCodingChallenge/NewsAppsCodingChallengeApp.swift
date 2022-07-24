@@ -11,7 +11,9 @@ import SwiftUI
 struct NewsAppsCodingChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-			newsFeedViewFactory
+			NavigationView {
+				newsFeedViewFactory
+			}
         }
     }
 

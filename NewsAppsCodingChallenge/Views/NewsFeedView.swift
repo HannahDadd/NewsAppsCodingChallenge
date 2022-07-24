@@ -10,7 +10,7 @@ import SwiftUI
 
 struct NewsFeedView: View {
 	@ObservedObject var presenter: NewsFeedPresenter
-	
+
 	var body: some View {
 		switch presenter.newsFeedResult {
 		case .success(let headlinePresenters):
@@ -44,7 +44,7 @@ struct NewsFeedView_Previews: PreviewProvider {
 		createPreviewView(deviceName: "iPhone SE (1st generation)")
 		createPreviewView(deviceName: "iPad (7th generation)")
 	}
-	
+
 	public static func createPreviewView(deviceName: String) -> some View {
 		let interactor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock())
 		let presenter = NewsFeedPresenter(interactor: interactor)
