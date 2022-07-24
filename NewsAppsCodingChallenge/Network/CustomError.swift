@@ -8,10 +8,12 @@
 import Foundation
 
 struct CustomError: LocalizedError {
+	var errorDescription: String? { return _description }
+	var failureReason: String? { return _description }
 
-	let errorDescription: String
+	private var _description: String
 
 	init(description: String) {
-		self.errorDescription = description
+		self._description = description
 	}
 }
