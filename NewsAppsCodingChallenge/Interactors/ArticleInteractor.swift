@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct ArticleInteractor {
+protocol ArticleInteractorProtocol {
+	var headline: Headline { get }
+}
+
+struct ArticleInteractor: ArticleInteractorProtocol {
 	let headline: Headline
 }
