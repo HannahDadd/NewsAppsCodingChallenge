@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class HeadlinePresenter: ObservableObject {
+class HeadlinePresenter: ObservableObject, Equatable {
 	@Published var headline: String
 	@Published var updatedTimestamp: String
 
@@ -19,5 +19,9 @@ class HeadlinePresenter: ObservableObject {
 
 		updatedTimestamp = dateFormatter.string(from: Date(timeIntervalSince1970: headline.updated))
 		self.headline = headline.headline
+	}
+
+	static func == (lhs: HeadlinePresenter, rhs: HeadlinePresenter) -> Bool {
+		lhs.headline == rhs.headline && lhs.updatedTimestamp == rhs.updatedTimestamp
 	}
 }

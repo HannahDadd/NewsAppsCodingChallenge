@@ -25,7 +25,7 @@ class NewsFeedPresenterTests: XCTestCase {
 		case .success(let newsFeed):
 			XCTAssertEqual(newsFeed, [
 				HeadlinePresenter(headline: NewsFeedStubbedData.getSampleNewsFeed().headlines[0]),
-				HeadlinePresenter(headline: NewsFeedStubbedData.getSampleNewsFeed().headlines[0])])
+				HeadlinePresenter(headline: NewsFeedStubbedData.getSampleNewsFeed().headlines[1])])
 		case .failure(_):
 			XCTFail("Interactor should have data")
 		case .none:

@@ -15,7 +15,7 @@ struct NewsFeedView: View {
 		switch presenter.newsFeedResult {
 		case .success(let newsFeed):
 			List {
-				if newsFeed.headlines.count == 0 {
+				if newsFeed.count == 0 {
 					Text("No news yet! Check back soon!")
 				} else {
 					Text("We have headlines!")
