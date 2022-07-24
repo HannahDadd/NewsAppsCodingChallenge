@@ -5,8 +5,6 @@
 //  Created by Hannah Billingsley-Dadd on 23/07/2022.
 //
 
-@testable import NewsAppsCodingChallenge
-
 struct NewsFeedFetcherSuccessfulMock: NewsFeedFetcher {
 	func performFetch() async throws -> NewsFeed {
 		NewsFeedStubbedData.getSampleNewsFeed()
