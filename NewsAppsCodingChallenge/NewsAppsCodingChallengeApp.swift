@@ -11,7 +11,15 @@ import SwiftUI
 struct NewsAppsCodingChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+			newsFeedViewFactory
         }
     }
+
+	@ViewBuilder
+	private var newsFeedViewFactory: some View {
+		let fetcher = NewsFeedFetcherWithURLSession()
+		let interactor = NewsFeedInteractor(newsFeedFetcher: fetcher)
+		let presenter = NewsFeedPresenter(interactor: interactor)
+		NewsFeedView(presenter: presenter)
+	}
 }
