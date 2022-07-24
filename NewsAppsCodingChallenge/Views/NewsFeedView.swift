@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct NewsFeedView: View {
+	@ObservedObject var presenter: NewsFeedPresenter
+
 	var body: some View {
-		Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		switch presenter.newsFeedResult {
+		case .success(let newsFeed):
+			List {
+				if newsFeed.headlines.count == 0 {
+					Text("No news yet! Check back soon!")
+				} else {
+					Text("We have headlines!")
+				}
+			}.refreshable {
+				presenter.fetchNewsFeed()
+			}.listStyle(.plain)
+		case .failure(let error):
+			ErrorView(error: error, retryHandler: { presenter.fetchNewsFeed() })
+		case nil:
+			ProgressView().onAppear(perform: { presenter.fetchNewsFeed() })
+		}
 	}
 }
 

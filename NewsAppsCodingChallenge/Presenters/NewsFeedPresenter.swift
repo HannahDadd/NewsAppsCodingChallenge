@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class NewsFeedPresenter {
+class NewsFeedPresenter: ObservableObject {
 	@Published var newsFeedResult: Result<NewsFeed, Error>?
 	private let newsFeedInteractor: FeedInteractor
 
