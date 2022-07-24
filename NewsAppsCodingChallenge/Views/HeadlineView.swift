@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct HeadlineView: View {
+	let headline: Headline
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		VStack {
+			HeadlineText(text: headline.headline)
+			LastUpdatedTimestamp(text: "Timestamp here")
+		}
     }
 }
 
