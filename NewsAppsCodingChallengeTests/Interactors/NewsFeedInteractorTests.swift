@@ -10,7 +10,7 @@ import XCTest
 
 class NewsFeedInteractorTests: XCTestCase {
 
-	func testInteractorFetchesNewsFeedSuccessfully() throws {
+	func testInteractorFetchesNewsFeedSuccessfully() {
 
 		// Given a NewsFeedInteractor with a successful NewsFeedFetcher
 		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock())
@@ -28,7 +28,7 @@ class NewsFeedInteractorTests: XCTestCase {
 		}
 	}
 
-	func testInteractorFailurePath() throws {
+	func testInteractorFailurePath() {
 
 		// Given a NewsFeedInteractor with a failure NewsFeedFetcher
 		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherFailureMock())

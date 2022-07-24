@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct NewsFeedInteractor {
+protocol FeedInteractor {
+	func fetchNewsFeed(completion: @escaping (Result<NewsFeed, Error>) -> Void)
+}
+
+struct NewsFeedInteractor: FeedInteractor {
 	let newsFeedFetcher: NewsFeedFetcher
 
 	func fetchNewsFeed(completion: @escaping (Result<NewsFeed, Error>) -> Void) {
