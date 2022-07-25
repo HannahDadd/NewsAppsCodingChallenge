@@ -35,10 +35,10 @@ class NewsFeedInteractorTests: XCTestCase {
 		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock(), statsCommunicator: statsCommunicator)
 
 		// When the NewsFeedInteractor fetches the data
-		newsFeedInteractor.fetchNewsFeed() {_ in }
-
-		// Then the time interval is set in the StatsCommunicator
-		XCTAssertNotNil(statsCommunicator.timeToComplete)
+		newsFeedInteractor.fetchNewsFeed() {_ in
+			// Then the time interval is set in the StatsCommunicator
+			XCTAssertNotNil(statsCommunicator.timeToComplete)
+		}
 	}
 
 	func testInteractorFailurePath() {

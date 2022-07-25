@@ -19,7 +19,8 @@ class FireAndForgetStatsCommunicatorTests: XCTestCase {
 		let urlString = fireAndForgetStatsCommunicator.createURL(parameters: ["event": "load", "data": "100"])
 
 		// Then the correct URLString is created
-		XCTAssertEqual(urlString, "https://raw.githubusercontent.com/bbc/news-apps-ios-coding-challenge/master/analytics?event=load&data=100")
+		// true statement required as dicts not ordered
+		XCTAssertTrue(urlString == "https://raw.githubusercontent.com/bbc/news-apps-ios-coding-challenge/master/analytics?event=load&data=100" || urlString == "https://raw.githubusercontent.com/bbc/news-apps-ios-coding-challenge/master/analytics?data=100&event=load")
 	}
 
 	func testFireAndForgetStatsCommunicatorCanFormatURLWithNoParamters() {

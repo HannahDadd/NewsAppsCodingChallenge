@@ -15,7 +15,7 @@ class ArticleRouterTests: XCTestCase {
 	func testArticleRouterCreatesViewFromHeadline() {
 
 		// Given an ArticleRouter
-		let articleRouter = ArticleRouter()
+		let articleRouter = ArticleRouter(statsCommunicator: nil)
 
 		// When the ArticleRouter builds a view from a given Headline
 		let headlineView = articleRouter.makeArticleView(headline: NewsFeedStubbedData.getSampleNewsFeed().headlines[0])
@@ -36,6 +36,8 @@ class ArticleRouterTests: XCTestCase {
 		let view: UIView = UIHostingController(rootView: headlineView).view
 
 		// Then a display stat is sent
+		// Snapshot required to test onAppear() function
+		assertSnapshot(matching: view, as: .image(size: view.intrinsicContentSize))
 		XCTAssertNotNil(statsCommunicator.screen)
 		XCTAssertEqual(statsCommunicator.screen, "article")
 	}
