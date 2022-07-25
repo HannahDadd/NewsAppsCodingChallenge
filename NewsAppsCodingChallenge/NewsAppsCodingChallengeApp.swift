@@ -20,7 +20,7 @@ struct NewsAppsCodingChallengeApp: App {
 	@ViewBuilder
 	private var newsFeedViewFactory: some View {
 		let fetcher = NewsFeedFetcherWithURLSession()
-		let interactor = NewsFeedInteractor(newsFeedFetcher: fetcher)
+		let interactor = NewsFeedInteractor(newsFeedFetcher: fetcher, statsCommunicator: nil)
 		let presenter = NewsFeedPresenter(interactor: interactor)
 		NewsFeedView(presenter: presenter)
 	}

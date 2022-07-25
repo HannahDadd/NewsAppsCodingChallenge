@@ -13,7 +13,7 @@ class NewsFeedInteractorTests: XCTestCase {
 	func testInteractorFetchesNewsFeedSuccessfully() {
 
 		// Given a NewsFeedInteractor with a successful NewsFeedFetcher
-		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock())
+		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock(), statsCommunicator: StatsCommunicatorSpy())
 
 		// When the NewsFeedInteractor fetches the data
 		newsFeedInteractor.fetchNewsFeed() {
@@ -35,7 +35,7 @@ class NewsFeedInteractorTests: XCTestCase {
 		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock(), statsCommunicator: statsCommunicator)
 
 		// When the NewsFeedInteractor fetches the data
-		newsFeedInteractor.fetchNewsFeed() {}
+		newsFeedInteractor.fetchNewsFeed() {_ in }
 
 		// Then the time interval is set in the StatsCommunicator
 		XCTAssertNotNil(statsCommunicator.timeToComplete)
@@ -44,7 +44,7 @@ class NewsFeedInteractorTests: XCTestCase {
 	func testInteractorFailurePath() {
 
 		// Given a NewsFeedInteractor with a failure NewsFeedFetcher
-		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherFailureMock())
+		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherFailureMock(), statsCommunicator: StatsCommunicatorSpy())
 
 		// When the NewsFeedInteractor fetches the data
 		newsFeedInteractor.fetchNewsFeed() {
@@ -66,7 +66,7 @@ class NewsFeedInteractorTests: XCTestCase {
 		let newsFeedInteractor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherFailureMock(), statsCommunicator: statsCommunicator)
 
 		// When the NewsFeedInteractor fetches the data
-		newsFeedInteractor.fetchNewsFeed() {}
+		newsFeedInteractor.fetchNewsFeed() {_ in }
 
 		// Then the time interval is not set in the StatsCommunicator
 		XCTAssertNil(statsCommunicator.timeToComplete)

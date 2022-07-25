@@ -47,7 +47,7 @@ struct NewsFeedView_Previews: PreviewProvider {
 	}
 
 	public static func createPreviewView(deviceName: String) -> some View {
-		let interactor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock())
+		let interactor = NewsFeedInteractor(newsFeedFetcher: NewsFeedFetcherSuccessfulMock(), statsCommunicator: nil)
 		let presenter = NewsFeedPresenter(interactor: interactor)
 		presenter.fetchNewsFeed()
 		return NewsFeedView(presenter: presenter)

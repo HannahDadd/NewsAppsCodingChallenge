@@ -13,11 +13,16 @@ protocol FeedInteractor {
 
 struct NewsFeedInteractor: FeedInteractor {
 	let newsFeedFetcher: NewsFeedFetcher
+	let statsCommunicator: StatsCommunicator?
 
 	func fetchNewsFeed(completion: @escaping (Result<NewsFeed, Error>) -> Void) {
 		Task {
 			do {
+				let startTime = Date()
 				let feed = try await newsFeedFetcher.performFetch()
+				if let statsCommunicator = statsCommunicator {
+					statsCommunicator.networkStat(timeToComplete: Date().timeIntervalSince(startTime))
+				}
 				completion(.success(feed))
 			} catch {
 				completion(.failure(error))
