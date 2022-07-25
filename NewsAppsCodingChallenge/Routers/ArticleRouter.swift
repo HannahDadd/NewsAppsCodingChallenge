@@ -8,14 +8,18 @@
 import SwiftUI
 
 class ArticleRouter {
-	let statsCommunicator: StatsCommunicator?
+	var statsCommunicator: StatsCommunicator?
+
+	init(statsCommunicator: StatsCommunicator?) {
+		self.statsCommunicator = statsCommunicator
+	}
 
 	func makeArticleView(headline: Headline) -> some View {
 		let interactor = ArticleInteractor(headline: headline)
 		let presenter = ArticlePresenter(interactor: interactor)
 
-		return ArticleView(presenter: presenter).onAppear({
-			if let statsCommunicator = statsCommunicator {
+		return ArticleView(presenter: presenter).onAppear(perform: {
+			if let statsCommunicator = self.statsCommunicator {
 				statsCommunicator.displayStat(screen: "article")
 			}
 		})
