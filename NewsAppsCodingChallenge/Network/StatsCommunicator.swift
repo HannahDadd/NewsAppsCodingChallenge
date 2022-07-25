@@ -15,6 +15,13 @@ protocol StatsCommunicator {
 struct FireAndForgetStatsCommunicator: StatsCommunicator {
 	private let statURL = "https://raw.githubusercontent.com/bbc/news-apps-ios-coding-challenge/master/analytics"
 
+	func displayStat(screen: String) {
+		let urlString = createURL(parameters: ["event": "display", "screen": screen])
+		Task {
+			await sendStats(urlString: urlString)
+		}
+	}
+
 	func networkStat(timeToComplete: TimeInterval) {
 		let urlString = createURL(parameters: ["event": "load", "time": String(Int(timeToComplete))])
 		Task {
