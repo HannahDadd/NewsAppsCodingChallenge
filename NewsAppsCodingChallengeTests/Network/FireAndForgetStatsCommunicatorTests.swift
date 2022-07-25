@@ -21,4 +21,16 @@ class FireAndForgetStatsCommunicatorTests: XCTestCase {
 		// Then the correct URLString is created
 		XCTAssertEqual(urlString, "https://raw.githubusercontent.com/bbc/news-apps-ios-coding-challenge/master/analytics?event=load&data=100")
 	}
+
+	func testFireAndForgetStatsCommunicatorCanFormatURLWithNoParamters() {
+
+		// Given a FireAndForgetStatsCommunicator and paramters
+		let fireAndForgetStatsCommunicator = FireAndForgetStatsCommunicator()
+
+		// When the FireAndForgetStatsCommunicator builds a url
+		let urlString = fireAndForgetStatsCommunicator.createURL(parameters: [:])
+
+		// Then the correct URLString is created
+		XCTAssertEqual(urlString, "https://raw.githubusercontent.com/bbc/news-apps-ios-coding-challenge/master/analytics")
+	}
 }
