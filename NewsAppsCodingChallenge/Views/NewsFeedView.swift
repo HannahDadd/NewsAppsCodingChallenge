@@ -31,10 +31,11 @@ struct NewsFeedView: View {
 				presenter.fetchNewsFeed()
 			}.listStyle(.plain)
 				.navigationBarTitle(Text("News Feed"), displayMode: .inline)
+				.onAppear(perform: presenter.onNewsFeedAppear)
 		case .failure(let error):
-			ErrorView(error: error, retryHandler: { presenter.fetchNewsFeed() })
+			ErrorView(error: error, retryHandler: presenter.fetchNewsFeed)
 		case nil:
-			ProgressView().onAppear(perform: { presenter.fetchNewsFeed() })
+			ProgressView().onAppear(perform: presenter.fetchNewsFeed)
 		}
 	}
 }
