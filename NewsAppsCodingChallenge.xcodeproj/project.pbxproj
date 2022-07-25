@@ -33,6 +33,8 @@
 		790208C2288DD0C5005C7E35 /* ArticleInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208B8288DC3BF005C7E35 /* ArticleInteractorMock.swift */; };
 		790208C5288DD24F005C7E35 /* ArticleRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208C4288DD24F005C7E35 /* ArticleRouterTests.swift */; };
 		790208C8288DD576005C7E35 /* ArticleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208C7288DD576005C7E35 /* ArticleRouter.swift */; };
+		790208CA288E69BC005C7E35 /* StatsCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208C9288E69BC005C7E35 /* StatsCommunicator.swift */; };
+		790208CC288E6B23005C7E35 /* StatsCommunicatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790208CB288E6B23005C7E35 /* StatsCommunicatorSpy.swift */; };
 		792513D8288BC956008FB786 /* NewsAppsCodingChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792513D7288BC956008FB786 /* NewsAppsCodingChallengeApp.swift */; };
 		792513DC288BC972008FB786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 792513DB288BC972008FB786 /* Assets.xcassets */; };
 		792513DF288BC972008FB786 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 792513DE288BC972008FB786 /* Preview Assets.xcassets */; };
@@ -90,6 +92,8 @@
 		790208C0288DD08B005C7E35 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		790208C4288DD24F005C7E35 /* ArticleRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRouterTests.swift; sourceTree = "<group>"; };
 		790208C7288DD576005C7E35 /* ArticleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRouter.swift; sourceTree = "<group>"; };
+		790208C9288E69BC005C7E35 /* StatsCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCommunicator.swift; sourceTree = "<group>"; };
+		790208CB288E6B23005C7E35 /* StatsCommunicatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCommunicatorSpy.swift; sourceTree = "<group>"; };
 		792513D4288BC956008FB786 /* NewsAppsCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsAppsCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		792513D7288BC956008FB786 /* NewsAppsCodingChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppsCodingChallengeApp.swift; sourceTree = "<group>"; };
 		792513DB288BC972008FB786 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -348,6 +352,7 @@
 			children = (
 				7953C912288C050100CB487C /* NewsFeedFetcher.swift */,
 				7902086E288C1B89005C7E35 /* CustomError.swift */,
+				790208C9288E69BC005C7E35 /* StatsCommunicator.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				79020875288D2473005C7E35 /* NewsFeedInteractorMock.swift */,
+				790208CB288E6B23005C7E35 /* StatsCommunicatorSpy.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -518,6 +524,7 @@
 				790208BD288DCF03005C7E35 /* ArticlePresenter.swift in Sources */,
 				79020895288D31EA005C7E35 /* NewsFeedFetcherMock.swift in Sources */,
 				7953C905288BFA7C00CB487C /* NewsFeedInteractor.swift in Sources */,
+				790208CA288E69BC005C7E35 /* StatsCommunicator.swift in Sources */,
 				790208C8288DD576005C7E35 /* ArticleRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +544,7 @@
 				7953C8F3288BD13800CB487C /* NewsFeedDecodableTests.swift in Sources */,
 				7953C8F0288BCE2600CB487C /* headlines-success-response.json in Sources */,
 				79020876288D2473005C7E35 /* NewsFeedInteractorMock.swift in Sources */,
+				790208CC288E6B23005C7E35 /* StatsCommunicatorSpy.swift in Sources */,
 				790208A3288D3EE8005C7E35 /* HeadlineViewSnapshotTests.swift in Sources */,
 				7953C902288BF71F00CB487C /* NewsFeedInteractorTests.swift in Sources */,
 				7902089F288D3CA4005C7E35 /* ErrorViewSnapshotTests.swift in Sources */,
