@@ -34,6 +34,20 @@ class NewsFeedPresenterTests: XCTestCase {
 		}
 	}
 
+	func testPresenterSendsStatInOnAppearFunction() {
+
+		// Given a NewsFeedPresenter with a stats communicator spy
+		let statsCommunicator = StatsCommunicatorSpy()
+		let newsFeedPresenter = NewsFeedPresenter(interactor: NewsFeedInteractorMock(), statsCommunicator: statsCommunicator)
+
+		// When the NewsFeedPresenter onAppear function is called
+		newsFeedPresenter.onAppear()
+
+		// Then a display stat is sent
+		XCTAssertNotNil(statsCommunicator.screen)
+		XCTAssertEqual(statsCommunicator.screen, "news-feed")
+	}
+
 	func testPresenterCreatesNavLinks() {
 
 		// Given a NewsFeedPresenter with a FeedInteractor and a Headline
