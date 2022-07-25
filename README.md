@@ -28,11 +28,11 @@ The app should build and run on simulators with no changes required. App is only
 ## Workflow
 
 Work was broken down into small, easy to test tickets, with bug tickets used for fixing issues. These a reflected in the commits: [FEATURE/TEST](ticket summary): commit details. e.g. 
-<sub> 
+```
 REFACTOR(bug-accessibility): move nav link for better accessibility
 TEST(display-stats-feed): test presenter onAppear func
 STAT(display-stats-feed): on appear called in view
-</sub>
+```
 
 Strict Test Driven Development has been used (also reflected in the commits with 'TEST' denoating test work).
 
