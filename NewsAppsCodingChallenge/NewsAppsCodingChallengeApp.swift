@@ -15,7 +15,7 @@ struct NewsAppsCodingChallengeApp: App {
         WindowGroup {
 			NavigationView {
 				newsFeedViewFactory
-			}
+			}.navigationViewStyle(StackNavigationViewStyle())
         }
     }
 
