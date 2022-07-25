@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct NewsAppsCodingChallengeApp: App {
+	let statsCommunicator = FireAndForgetStatsCommunicator()
+
     var body: some Scene {
         WindowGroup {
 			NavigationView {
@@ -20,7 +22,7 @@ struct NewsAppsCodingChallengeApp: App {
 	@ViewBuilder
 	private var newsFeedViewFactory: some View {
 		let fetcher = NewsFeedFetcherWithURLSession()
-		let interactor = NewsFeedInteractor(newsFeedFetcher: fetcher, statsCommunicator: nil)
+		let interactor = NewsFeedInteractor(newsFeedFetcher: fetcher, statsCommunicator: statsCommunicator)
 		let presenter = NewsFeedPresenter(interactor: interactor)
 		NewsFeedView(presenter: presenter)
 	}
