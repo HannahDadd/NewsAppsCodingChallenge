@@ -19,11 +19,8 @@ struct NewsFeedView: View {
 					Text("No news yet! Check back soon!")
 				} else {
 					ForEach(headlinePresenters) { h in
-						VStack {
+						presenter.makeLink(headline: h.headline) {
 							HeadlineView(presenter: h)
-							presenter.makeLink(headline: h.headline) {
-								EmptyView()
-							}.frame(width: 0).opacity(0)
 						}
 					}
 				}
