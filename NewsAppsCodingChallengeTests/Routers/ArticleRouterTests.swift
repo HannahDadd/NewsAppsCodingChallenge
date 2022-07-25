@@ -24,4 +24,19 @@ class ArticleRouterTests: XCTestCase {
 		// Then the Article Router creates the correct view
 		assertSnapshot(matching: view, as: .image(size: view.intrinsicContentSize))
 	}
+
+	func testArticleRouterSendsStatWhenViewAppears() {
+
+		// Given an ArticleRouter with a stats communicator
+		let statsCommunicator = StatsCommunicatorSpy()
+		let articleRouter = ArticleRouter(statsCommunicator: statsCommunicator)
+
+		// When the ArticleRouter builds a view from a given Headline
+		let headlineView = articleRouter.makeArticleView(headline: NewsFeedStubbedData.getSampleNewsFeed().headlines[0])
+		let view: UIView = UIHostingController(rootView: headlineView).view
+
+		// Then a display stat is sent
+		XCTAssertNotNil(statsCommunicator.screen)
+		XCTAssertEqual(statsCommunicator.screen, "article")
+	}
 }

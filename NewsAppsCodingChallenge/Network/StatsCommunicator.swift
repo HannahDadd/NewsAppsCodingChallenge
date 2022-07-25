@@ -9,6 +9,7 @@ import Foundation
 
 protocol StatsCommunicator {
 	func networkStat(timeToComplete: TimeInterval)
+	func displayStat(screen: String)
 }
 
 struct FireAndForgetStatsCommunicator: StatsCommunicator {
