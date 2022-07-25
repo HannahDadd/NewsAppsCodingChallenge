@@ -17,6 +17,10 @@ class NewsFeedPresenter: ObservableObject {
 		newsFeedInteractor = interactor
 		router = ArticleRouter(statsCommunicator: interactor.statsCommunicator)
 	}
+
+	func onNewsFeedAppear() {
+		router.statsCommunicator?.displayStat(screen: "news-feed")
+	}
 	
 	func fetchNewsFeed() {
 		newsFeedInteractor.fetchNewsFeed {

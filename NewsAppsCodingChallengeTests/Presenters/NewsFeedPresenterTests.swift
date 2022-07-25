@@ -38,10 +38,10 @@ class NewsFeedPresenterTests: XCTestCase {
 
 		// Given a NewsFeedPresenter with a stats communicator spy
 		let statsCommunicator = StatsCommunicatorSpy()
-		let newsFeedPresenter = NewsFeedPresenter(interactor: NewsFeedInteractorMock(), statsCommunicator: statsCommunicator)
+		let newsFeedPresenter = NewsFeedPresenter(interactor: NewsFeedInteractorMock(statsCommunicator: statsCommunicator))
 
 		// When the NewsFeedPresenter onAppear function is called
-		newsFeedPresenter.onAppear()
+		newsFeedPresenter.onNewsFeedAppear()
 
 		// Then a display stat is sent
 		XCTAssertNotNil(statsCommunicator.screen)
