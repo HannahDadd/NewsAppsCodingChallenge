@@ -36,7 +36,7 @@ Strict Test Driven Development has been used (also reflected in the commits with
 
 ## Improvements
 
-Codebase is not perfect due to time constraint. Improvements could include giving the app an app icon.
+Codebase is not perfect due to time constraint. Improvements could include giving the app an app icon. Due to time constraints, snapshot tests only pass on iPhone 11. 
 
 ## Assumptions
 
