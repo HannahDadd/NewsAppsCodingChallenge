@@ -6,13 +6,11 @@ This is a simple app which displays a list of news articles and allows users to 
 
 The app should build and run on simulators with no changes required. App is only avalible on iOS 15.5.
 
-**Note:** Snapshot tests will only pass on iPhone 11. 
-
 ## Features
 - Basic fire and forget stats report for news feed and article pages.
 - Typography, as specified in the design.
 - Design considerations for smaller and larger screen sizes and iPad.
-- Pull to refresh.
+- Pull to refresh (double tap, hold, pull down on VO).
 - Supports dynamic type.
 - Supports VoiceOver navigation.
 
@@ -38,7 +36,7 @@ Strict Test Driven Development has been used (also reflected in the commits with
 
 ## Improvements
 
-Codebase is not perfect due to time constraint. Improvements could include making the snapshot tests work on any device and giving the app an app icon.
+Codebase is not perfect due to time constraint. Improvements could include giving the app an app icon.
 
 ## Assumptions
 
